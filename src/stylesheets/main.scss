@@ -18,7 +18,7 @@ $textColor: #1F282D;
 $secondaryTextColor: #1F282D;
 $linkColor: #77BED2;
 $accentColor: #F2583E;
-$bgColor: #ECF0F1;
+$bgColor: #222222;
 
 
 
@@ -102,7 +102,7 @@ body > * {
 
 .hero {
   position: absolute;
-  top: 40%;
+  bottom: 25%;
 }
 
 .motto {
@@ -147,4 +147,22 @@ body > * {
       margin-left: 0;
     }
   }
+}
+
+.main-bg-wrapper {
+  &, & > * {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+.main-bg {
+  background: url(img/iimora-cover-art.png) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
