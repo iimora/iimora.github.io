@@ -5,6 +5,7 @@
 
 $mobileWidth: 480px;
 $tabletWidth: 768px;
+$bodyPadding: 5%;
 
 // Google Fonts
 // http://www.google.com/fonts#UsePlace:use/Collection:Source+Sans+Pro:200italic|Oswald|Open+Sans:300,600
@@ -55,11 +56,10 @@ a {
 
 body > * {
   width: 100%;
-  max-width: 800px;
   margin: auto;
   left: 0;
   right: 0;
-  padding: 5%;
+  padding: $bodyPadding;
 }
 
 .section {
@@ -76,12 +76,11 @@ body > * {
   z-index: 1000;
   position: fixed;
   display: table;
-  bottom: 0;
   width: 100%;
   padding: 5px 5%;
   font-size: 0.8rem;
 
-  & > div {
+  & > .nav-item {
     display: table-cell;
     vertical-align: middle;
   }
@@ -102,10 +101,11 @@ body > * {
 
 .hero {
   position: absolute;
-  bottom: 25%;
+  top: 25%;
 }
 
 .motto {
+  margin-bottom: 3rem;
 
   & > * {
     display: table-cell;
@@ -118,13 +118,15 @@ body > * {
   .hero-title {
     color: $accentColor;
     font: $headerFont;
-    font-size: 2rem;
+    font-size: 4rem;
     line-height: 1.3;
   }
 
   .hero-subtitle {
-    @media not screen and (max-width: $mobileWidth) {
-      font-size: 1.2rem;
+    font-size: 1.2rem;
+
+    @media screen and (max-width: $mobileWidth) {
+      display: none;
     }
   }
 }
@@ -136,16 +138,14 @@ body > * {
 }
 
 .links {
+  display: flex;
   font-size: 0.8rem;
-  margin-top: 20px;
+  flex-direction: column;
+  padding-left: 0.3rem;
+  opacity: 0.8;
 
   a {
-    padding-top: 10px;
-    margin-left: 10px;
-
-    &:first-child {
-      margin-left: 0;
-    }
+    margin: 0.4em 0;
   }
 }
 
@@ -165,4 +165,43 @@ body > * {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+}
+
+.spotify-footer {
+  @extend .nav;
+  position: absolute;
+  bottom: 0;
+  padding: 0;
+
+  .spotify-footer-wrapper {
+    position: relative;
+    width: 100%;
+  }
+
+
+  .spotify-footer-content {
+    padding: $bodyPadding;
+  }
+
+  .spotify-footer-bg {
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.25) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.25) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.25) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); /* IE6-9 */
+  }
+
+  & > * {
+    width: 20%;
+    display: inline-block;
+  }
+
+  .spotify-player {
+    width: 100%;
+  }
 }
